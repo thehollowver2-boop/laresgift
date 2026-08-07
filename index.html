@@ -10,14 +10,14 @@ iframe{width:min(95vw,900px);height:min(55vw,506px);border:0}
 </style></head><body>
 <div class="container" id="menu">
 <h1>Witaj!</h1>
-<img src="images/welcome.jpg" style="max-width:300px" alt="welcome">
-audio id="bgmusic" autoplay loop>
-    <source src="muzyka.mp3" type="audio/mpeg">
+<img src="images/welcome.png" style="max-width:300px" alt="welcome">
+<audio id="bgmusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
 </audio>
-
 <script>
 document.getElementById("bgmusic").volume = 0.2;
 </script>
+<br><button onclick="document.getElementById('bgmusic').play()">🔊 Włącz muzykę</button>
 <h2>Wybierz opcję</h2>
 <div class="options">
 <div class="card"><h3>Opcja 1</h3><input type="radio" name="v" value="https://www.youtube.com/watch?v=Dvdx3kuczAM&list=RDDvdx3kuczAM&start_radio=1"></div>
