@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meme Template</title>
+<style>
+body{margin:0;background:#111;color:#fff;font-family:Arial;text-align:center}
+.container{max-width:1000px;margin:auto;padding:30px}
+.options{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.card{background:#222;padding:20px;border-radius:12px;width:220px}
+button{padding:12px 30px;font-size:18px;border-radius:8px}
+.hidden{display:none}
+iframe{width:min(95vw,900px);height:min(55vw,506px);border:0}
+</style></head><body>
+<div class="container" id="menu">
+<h1>Witaj!</h1>
+<img src="images/welcome.jpg" style="max-width:300px" alt="welcome">
+audio id="bgmusic" autoplay loop>
+    <source src="muzyka.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.getElementById("bgmusic").volume = 0.2;
+</script>
+<h2>Wybierz opcję</h2>
+<div class="options">
+<div class="card"><h3>Opcja 1</h3><input type="radio" name="v" value="https://www.youtube.com/watch?v=Dvdx3kuczAM&list=RDDvdx3kuczAM&start_radio=1"></div>
+<div class="card"><h3>Opcja 2</h3><input type="radio" name="v" value="https://www.youtube.com/watch?v=d6hoxOKQOMI"></div>
+<div class="card"><h3>Opcja 3</h3><input type="radio" name="v" value="https://www.youtube.com/watch?v=dXgERqDatXI&list=RDdXgERqDatXI&start_radio=1"></div>
+</div><br><button onclick="go()">Dalej</button></div>
+<div class="container hidden" id="player">
+<h2>Film</h2><iframe id="yt" allow="autoplay; encrypted-media" allowfullscreen></iframe><br><br>
+<button onclick="back()">Powrót</button></div>
+<script>
+function go(){
+let c=document.querySelector('input[name=v]:checked');
+if(!c){alert('Wybierz opcję');return;}
+menu.classList.add('hidden');
+player.classList.remove('hidden');
+yt.src=c.value+'?autoplay=1';
+}
+function back(){yt.src='';player.classList.add('hidden');menu.classList.remove('hidden');}
+</script></body></html>
