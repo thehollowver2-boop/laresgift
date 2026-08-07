@@ -7,10 +7,11 @@ body{margin:0;background:#111;color:#fff;font-family:Arial;text-align:center}
 button{padding:12px 30px;font-size:18px;border-radius:8px}
 .hidden{display:none}
 iframe{width:min(95vw,900px);height:min(55vw,506px);border:0}
+img.full{width:100%;max-width:100%;display:block}
 </style></head><body>
 <div class="container" id="menu">
 <h1>Witaj!</h1>
-<img src="images/welcome.png" style="max-width:300px" alt="welcome">
+<img src="images/welcome.png" class="full" alt="welcome">
 <audio id="bgmusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -20,9 +21,9 @@ document.getElementById("bgmusic").volume = 0.2;
 <br><button onclick="document.getElementById('bgmusic').play()">🔊 Włącz muzykę</button>
 <h2>Wybierz opcję</h2>
 <div class="options">
-<div class="card"><h3>Opcja 1</h3><input type="radio" name="v" value="https://www.youtube.com/watch?v=Dvdx3kuczAM&list=RDDvdx3kuczAM&start_radio=1"></div>
-<div class="card"><h3>Opcja 2</h3><input type="radio" name="v" value="https://www.youtube.com/watch?v=d6hoxOKQOMI"></div>
-<div class="card"><h3>Opcja 3</h3><input type="radio" name="v" value="https://www.youtube.com/watch?v=dXgERqDatXI&list=RDdXgERqDatXI&start_radio=1"></div>
+<div class="card"><h3>Opcja 1</h3><input type="radio" name="v" value="Dvdx3kuczAM"></div>
+<div class="card"><h3>Opcja 2</h3><input type="radio" name="v" value="d6hoxOKQOMI"></div>
+<div class="card"><h3>Opcja 3</h3><input type="radio" name="v" value="dXgERqDatXI"></div>
 </div><br><button onclick="go()">Dalej</button></div>
 <div class="container hidden" id="player">
 <h2>Film</h2><iframe id="yt" allow="autoplay; encrypted-media" allowfullscreen></iframe><br><br>
@@ -33,7 +34,7 @@ let c=document.querySelector('input[name=v]:checked');
 if(!c){alert('Wybierz opcję');return;}
 menu.classList.add('hidden');
 player.classList.remove('hidden');
-yt.src=c.value+'?autoplay=1';
+yt.src='https://www.youtube.com/embed/'+c.value+'?autoplay=1';
 }
 function back(){yt.src='';player.classList.add('hidden');menu.classList.remove('hidden');}
 </script></body></html>
